@@ -4,6 +4,7 @@ import { Login } from '../../signals/exercicio1/login/login';
 import { Imagem } from '../../signals/exercicio1/imagem/imagem';
 import { Exercicio2ListaUsuarios } from '../../signals/exercicio2-lista-usuarios/exercicio2-lista-usuarios';
 import { Exercicio3Login } from '../../signals/exercicio3-login/exercicio3-login';
+import { Exercicio4Alunos } from '../../signals/exercicio4-alunos/exercicio4-alunos';
 
 @Component({
   selector: 'app-signals',
@@ -12,7 +13,8 @@ import { Exercicio3Login } from '../../signals/exercicio3-login/exercicio3-login
     Login,
     Imagem,
     Exercicio2ListaUsuarios,
-    Exercicio3Login
+    Exercicio3Login,
+    Exercicio4Alunos
   ],
   templateUrl: './signals.html',
   styleUrl: './signals.css'
