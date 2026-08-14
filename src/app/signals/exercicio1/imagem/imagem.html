@@ -1,0 +1,11 @@
+<h1>Exercício 1 - Imagem com Signal</h1>
+
+<input
+  type="text"
+  placeholder="Digite a URL da imagem"
+  (input)="atualizarUrl($event)"
+>
+
+<br><br>
+
+<img [src]="urlImagem()">
