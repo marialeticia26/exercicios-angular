@@ -1,0 +1,29 @@
+<h1>Exercício 3 - Login com Signals</h1>
+
+<form (submit)="fazerLogin(); $event.preventDefault()">
+
+  <label>Usuário:</label>
+  <input
+    type="text"
+    (input)="atualizarUsuario($event)"
+  >
+
+  <br><br>
+
+  <label>Senha:</label>
+  <input
+    type="password"
+    (input)="atualizarSenha($event)"
+  >
+
+  <br><br>
+
+  <button type="submit">
+    Entrar
+  </button>
+
+</form>
+
+<p>
+  {{ logado() ? 'O usuário está logado' : 'O usuário não está logado' }}
+</p>
