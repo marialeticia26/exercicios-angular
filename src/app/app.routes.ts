@@ -1,13 +1,14 @@
 import { Routes } from '@angular/router';
 import { Introducao } from './paginas/introducao/introducao';
 import { Signals } from './paginas/signals/signals';
+import { Home } from './paginas/home/home';
 
 export const routes: Routes = [
 
   {
-  path: 'signals',
-  component: Signals
-},
+    path: 'home',
+    component: Home
+  },
 
   {
     path: 'introducao',
@@ -15,8 +16,13 @@ export const routes: Routes = [
   },
 
   {
+    path: 'signals',
+    component: Signals
+  },
+
+  {
     path: '',
-    redirectTo: 'introducao',
+    redirectTo: 'home',
     pathMatch: 'full'
   }
 
