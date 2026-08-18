@@ -1,0 +1,57 @@
+<h1>Exercício 7 - Lista de Tarefas</h1>
+
+<input
+  type="text"
+  [value]="nomeTarefa()"
+  (input)="atualizarNome($event)"
+  placeholder="Digite uma tarefa"
+>
+
+@if (tarefaEditandoId() === null) {
+
+  <button (click)="adicionarTarefa()">
+    Adicionar
+  </button>
+
+} @else {
+
+  <button (click)="salvarEdicao()">
+    Salvar edição
+  </button>
+
+  <button (click)="cancelarEdicao()">
+    Cancelar edição
+  </button>
+
+}
+
+<h2>Tarefas</h2>
+
+<div class="tarefas">
+
+  @for (tarefa of tarefas(); track tarefa.id) {
+
+    <div
+      class="card"
+      [class.concluida]="tarefa.concluida"
+    >
+
+      <p>{{ tarefa.nome }}</p>
+
+      <button (click)="alterarConclusao(tarefa.id)">
+        {{ tarefa.concluida ? 'Não concluída' : 'Concluir' }}
+      </button>
+
+      <button (click)="editarTarefa(tarefa.id)">
+        Editar
+      </button>
+
+      <button (click)="removerTarefa(tarefa.id)">
+        Remover
+      </button>
+
+    </div>
+
+  }
+
+</div>

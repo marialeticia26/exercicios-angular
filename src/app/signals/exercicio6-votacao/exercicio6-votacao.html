@@ -1,0 +1,29 @@
+<h1>Exercício 6 - Votação</h1>
+
+<button (click)="ordenarLista()">
+  Ordenar lista
+</button>
+
+<br><br>
+
+@for (candidato of candidatos(); track candidato.id) {
+
+  <div class="card">
+
+    <img
+      [src]="candidato.foto"
+      [alt]="candidato.nome"
+      width="150"
+    >
+
+    <h2>{{ candidato.nome }}</h2>
+
+    <p>Votos: {{ candidato.votos }}</p>
+
+    <button (click)="votar(candidato.id)">
+      Votar
+    </button>
+
+  </div>
+
+}

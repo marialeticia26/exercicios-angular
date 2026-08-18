@@ -1,0 +1,106 @@
+<h1>Exercício 5 - Cadastro de Usuários</h1>
+
+<form (submit)="cadastrarUsuario($event)">
+
+  <label>Nome completo:</label>
+  <input
+    type="text"
+    [formField]="usuarioForm.nomeCompleto"
+  >
+
+  @if (usuarioForm.nomeCompleto().touched() && usuarioForm.nomeCompleto().invalid()) {
+    @for (erro of usuarioForm.nomeCompleto().errors(); track erro.kind) {
+      <p>{{ erro.message }}</p>
+    }
+  }
+
+  <br>
+
+  <label>E-mail:</label>
+  <input
+    type="email"
+    [formField]="usuarioForm.email"
+  >
+
+  @if (usuarioForm.email().touched() && usuarioForm.email().invalid()) {
+    @for (erro of usuarioForm.email().errors(); track erro.kind) {
+      <p>{{ erro.message }}</p>
+    }
+  }
+
+  <br>
+
+  <label>Senha:</label>
+  <input
+    type="password"
+    [formField]="usuarioForm.senha"
+  >
+
+  @if (usuarioForm.senha().touched() && usuarioForm.senha().invalid()) {
+    @for (erro of usuarioForm.senha().errors(); track erro.kind) {
+      <p>{{ erro.message }}</p>
+    }
+  }
+
+  <br>
+
+  <label>Confirmar senha:</label>
+  <input
+    type="password"
+    [formField]="usuarioForm.confirmarSenha"
+  >
+
+  @if (usuarioForm.confirmarSenha().touched() && usuarioForm.confirmarSenha().invalid()) {
+    @for (erro of usuarioForm.confirmarSenha().errors(); track erro.kind) {
+      <p>{{ erro.message }}</p>
+    }
+  }
+
+  <br>
+
+  <label>Data de nascimento:</label>
+  <input
+    type="date"
+    [formField]="usuarioForm.dataNascimento"
+  >
+
+  @if (usuarioForm.dataNascimento().touched() && usuarioForm.dataNascimento().invalid()) {
+    @for (erro of usuarioForm.dataNascimento().errors(); track erro.kind) {
+      <p>{{ erro.message }}</p>
+    }
+  }
+
+  @if (erroSenha()) {
+    <p>{{ erroSenha() }}</p>
+  }
+
+  <br>
+
+  <button
+    type="submit"
+    [disabled]="usuarioForm().invalid()"
+  >
+    Cadastrar
+  </button>
+
+</form>
+
+<h2>Usuários cadastrados</h2>
+
+<div class="usuarios">
+
+  @for (usuario of usuarios(); track usuario.email) {
+
+    <div class="card">
+
+      <p>Nome: {{ usuario.nomeCompleto }}</p>
+
+      <p>E-mail: {{ usuario.email }}</p>
+
+      <p>Data de nascimento: {{ usuario.dataNascimento }}</p>
+
+    </div>
+
+  }
+
+</div>
