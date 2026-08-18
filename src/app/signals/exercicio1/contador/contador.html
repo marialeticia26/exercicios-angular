@@ -1,9 +1,9 @@
-<h1>Exercício 1 - Contador com Signal</h1>
+<h1>Exercício 1 - Contador com Signal e Service</h1>
 
-<h2 (click)="zerar()">
-  {{ contador() }}
+<h2 (click)="contadorService.zerar()">
+  {{ contadorService.contador() }}
 </h2>
 
-<button (click)="incrementar()">
+<button (click)="contadorService.incrementar()">
   Incrementar
 </button>

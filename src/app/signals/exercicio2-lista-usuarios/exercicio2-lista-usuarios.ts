@@ -1,5 +1,5 @@
-import { Component, signal } from '@angular/core';
-import { Usuario } from './usuario';
+import { Component, inject } from '@angular/core';
+import { UsuariosService } from './services/usuarios';
 
 @Component({
   selector: 'app-exercicio2-lista-usuarios',
@@ -8,23 +8,5 @@ import { Usuario } from './usuario';
   styleUrl: './exercicio2-lista-usuarios.css'
 })
 export class Exercicio2ListaUsuarios {
-
-  usuarios = signal<Usuario[]>([
-    {
-      id: 1,
-      nome: 'Ana',
-      idade: 20
-    },
-    {
-      id: 2,
-      nome: 'Carlos',
-      idade: 25
-    },
-    {
-      id: 3,
-      nome: 'Maria',
-      idade: 30
-    }
-  ]);
-
+  protected readonly usuariosService = inject(UsuariosService);
 }

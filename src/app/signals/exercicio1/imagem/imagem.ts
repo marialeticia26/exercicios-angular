@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ImagemService } from './services/imagem';
 
 @Component({
   selector: 'app-imagem',
@@ -7,12 +8,7 @@ import { Component, signal } from '@angular/core';
   styleUrl: './imagem.css'
 })
 export class Imagem {
-
-  urlImagem = signal('');
-
-  atualizarUrl(event: Event) {
-  const input = event.target as HTMLInputElement;
-  this.urlImagem.set(input.value);
-}
+  
+  protected readonly imagemService = inject(ImagemService);
 
 }

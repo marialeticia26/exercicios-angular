@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ContadorService } from './services/contador';
 
 @Component({
   selector: 'app-contador',
@@ -8,14 +9,6 @@ import { Component, signal } from '@angular/core';
 })
 export class Contador {
 
-  contador = signal(0);
-
-  incrementar() {
-    this.contador.update(valor => valor + 1);
-  }
-
-  zerar() {
-    this.contador.set(0);
-  }
+protected readonly contadorService = inject(ContadorService);
 
 }

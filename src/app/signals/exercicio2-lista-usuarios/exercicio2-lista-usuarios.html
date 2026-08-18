@@ -1,7 +1,7 @@
 <h1>Exercício 2 - Lista de Usuários</h1>
 
-@for (usuario of usuarios(); track usuario.id) {
-
+@for (usuario of usuariosService.usuarios(); track usuario.id) {
+  
   <p>
     Id: {{ usuario.id }}
   </p>

@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { LoginService } from './services/login';
 
 @Component({
   selector: 'app-login',
@@ -7,11 +8,6 @@ import { Component, signal } from '@angular/core';
   styleUrl: './login.css'
 })
 export class Login {
-
-  logado = signal(false);
-
-  alterarLogin() {
-    this.logado.update(valor => !valor);
-  }
-
+  
+  protected readonly loginService = inject(LoginService);
 }

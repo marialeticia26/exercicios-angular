@@ -3,41 +3,32 @@
 <form (submit)="cadastrarAluno($event)">
 
   <label>Nome:</label>
-  <input
-    type="text"
-    [formField]="alunoForm.nome"
-  >
+  <input type="text" [formField]="alunoForm.nome">
 
   @if (alunoForm.nome().touched() && alunoForm.nome().invalid()) {
 
-    @for (erro of alunoForm.nome().errors(); track erro.kind) {
-      <p>{{ erro.message }}</p>
-    }
+  @for (erro of alunoForm.nome().errors(); track erro.kind) {
+  <p>{{ erro.message }}</p>
+  }
 
   }
 
   <br>
 
   <label>Média:</label>
-  <input
-    type="number"
-    [formField]="alunoForm.media"
-  >
+  <input type="number" [formField]="alunoForm.media">
 
   @if (alunoForm.media().touched() && alunoForm.media().invalid()) {
 
-    @for (erro of alunoForm.media().errors(); track erro.kind) {
-      <p>{{ erro.message }}</p>
-    }
+  @for (erro of alunoForm.media().errors(); track erro.kind) {
+  <p>{{ erro.message }}</p>
+  }
 
   }
 
   <br><br>
 
-  <button
-    type="submit"
-    [disabled]="alunoForm().invalid()"
-  >
+  <button type="submit" [disabled]="alunoForm().invalid()">
     Cadastrar
   </button>
 
@@ -45,16 +36,16 @@
 
 <h2>Alunos cadastrados</h2>
 
-@for (aluno of alunos(); track $index) {
+@for (aluno of alunosService.alunos(); track aluno.nome) {
 
-  <p>
-    {{ aluno.nome }} - Média: {{ aluno.media }}
+<p>
+  {{ aluno.nome }} - Média: {{ aluno.media }}
 
-    @if (aluno.media !== null && aluno.media >= 7) {
-      <span class="aprovado">(Aprovado)</span>
-    } @else {
-      <span class="reprovado">(Reprovado)</span>
-    }
-  </p>
+  @if (aluno.media !== null && aluno.media >= 7) {
+  <span class="aprovado">(Aprovado)</span>
+  } @else {
+  <span class="reprovado">(Reprovado)</span>
+  }
+</p>
 
 }

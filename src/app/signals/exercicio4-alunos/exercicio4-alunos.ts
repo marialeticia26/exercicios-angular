@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { form, FormField, required, min, max } from '@angular/forms/signals';
 import { Aluno } from './aluno';
+import { Alunos } from './services/alunos';
 
 @Component({
   selector: 'app-exercicio4-alunos',
@@ -9,6 +10,8 @@ import { Aluno } from './aluno';
   styleUrl: './exercicio4-alunos.css',
 })
 export class Exercicio4Alunos {
+
+  protected readonly alunosService = inject(Alunos);
 
   protected alunoModel = signal<Aluno>({
     nome: '',
@@ -35,22 +38,19 @@ export class Exercicio4Alunos {
 
   });
 
-  protected alunos = signal<Aluno[]>([]);
-
   protected cadastrarAluno(event: SubmitEvent) {
 
-  event.preventDefault();
+    event.preventDefault();
 
-  const aluno = this.alunoModel();
+    const aluno = this.alunoModel();
 
-  this.alunos.update(lista => [...lista, aluno]);
+    this.alunosService.cadastrarAluno(aluno);
 
-  this.alunoModel.set({
-    nome: '',
-    media: null
-  });
+    this.alunoModel.set({
+      nome: '',
+      media: null
+    });
+
+  }
 
 }
-
-}
-

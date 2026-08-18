@@ -1,11 +1,11 @@
-<h1>Exercício 3 - Login com Signals</h1>
+<h1>Exercício 3 - Login com Signals e Service</h1>
 
-<form (submit)="fazerLogin(); $event.preventDefault()">
+<form (submit)="loginService.fazerLogin(); $event.preventDefault()">
 
   <label>Usuário:</label>
   <input
     type="text"
-    (input)="atualizarUsuario($event)"
+    (input)="loginService.atualizarUsuario($event)"
   >
 
   <br><br>
@@ -13,7 +13,7 @@
   <label>Senha:</label>
   <input
     type="password"
-    (input)="atualizarSenha($event)"
+    (input)="loginService.atualizarSenha($event)"
   >
 
   <br><br>
@@ -25,5 +25,5 @@
 </form>
 
 <p>
-  {{ logado() ? 'O usuário está logado' : 'O usuário não está logado' }}
+  {{ loginService.logado() ? 'O usuário está logado' : 'O usuário não está logado' }}
 </p>
