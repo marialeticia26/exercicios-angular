@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { form, FormField, required, email } from '@angular/forms/signals';
 import { UsuarioCadastro } from './usuario-cadastro';
+import { UsuariosService } from './services/usuarios';
 
 @Component({
   selector: 'app-exercicio5-cadastro',
@@ -9,6 +10,8 @@ import { UsuarioCadastro } from './usuario-cadastro';
   styleUrl: './exercicio5-cadastro.css'
 })
 export class Exercicio5Cadastro {
+
+  protected readonly usuariosService = inject(UsuariosService);
 
   protected usuarioModel = signal<UsuarioCadastro>({
     nomeCompleto: '',
@@ -46,7 +49,6 @@ export class Exercicio5Cadastro {
 
   });
 
-  protected usuarios = signal<UsuarioCadastro[]>([]);
 
   protected erroSenha = signal('');
 
@@ -67,7 +69,7 @@ export class Exercicio5Cadastro {
 
     this.erroSenha.set('');
 
-    this.usuarios.update(lista => [...lista, usuario]);
+    this.usuariosService.cadastrarUsuario(usuario);
 
     this.usuarioModel.set({
       nomeCompleto: '',

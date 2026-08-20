@@ -1,12 +1,12 @@
 <h1>Exercício 6 - Votação</h1>
 
-<button (click)="ordenarLista()">
+<button (click)="votacaoService.ordenarLista()">
   Ordenar lista
 </button>
 
 <br><br>
 
-@for (candidato of candidatos(); track candidato.id) {
+@for (candidato of votacaoService.candidatos(); track candidato.id) {
 
   <div class="card">
 
@@ -20,7 +20,7 @@
 
     <p>Votos: {{ candidato.votos }}</p>
 
-    <button (click)="votar(candidato.id)">
+    <button (click)="votacaoService.votar(candidato.id)">
       Votar
     </button>
 

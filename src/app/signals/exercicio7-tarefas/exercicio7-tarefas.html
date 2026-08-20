@@ -1,27 +1,23 @@
 <h1>Exercício 7 - Lista de Tarefas</h1>
 
-<input
-  type="text"
-  [value]="nomeTarefa()"
-  (input)="atualizarNome($event)"
-  placeholder="Digite uma tarefa"
->
+<input type="text" [value]="tarefasService.nomeTarefa()" (input)="tarefasService.atualizarNome($event)"
+  placeholder="Digite uma tarefa">
 
-@if (tarefaEditandoId() === null) {
+@if (tarefasService.tarefaEditandoId() === null) {
 
-  <button (click)="adicionarTarefa()">
-    Adicionar
-  </button>
+<button (click)="tarefasService.adicionarTarefa()">
+  Adicionar
+</button>
 
 } @else {
 
-  <button (click)="salvarEdicao()">
-    Salvar edição
-  </button>
+<button (click)="tarefasService.salvarEdicao()">
+  Salvar edição
+</button>
 
-  <button (click)="cancelarEdicao()">
-    Cancelar edição
-  </button>
+<button (click)="tarefasService.cancelarEdicao()">
+  Cancelar edição
+</button>
 
 }
 
@@ -29,28 +25,25 @@
 
 <div class="tarefas">
 
-  @for (tarefa of tarefas(); track tarefa.id) {
+  @for (tarefa of tarefasService.tarefas(); track tarefa.id) {
 
-    <div
-      class="card"
-      [class.concluida]="tarefa.concluida"
-    >
+  <div class="card" [class.concluida]="tarefa.concluida">
 
-      <p>{{ tarefa.nome }}</p>
+    <p>{{ tarefa.nome }}</p>
 
-      <button (click)="alterarConclusao(tarefa.id)">
-        {{ tarefa.concluida ? 'Não concluída' : 'Concluir' }}
-      </button>
+    <button (click)="tarefasService.alterarConclusao(tarefa.id)">
+      {{ tarefa.concluida ? 'Não concluída' : 'Concluir' }}
+    </button>
 
-      <button (click)="editarTarefa(tarefa.id)">
-        Editar
-      </button>
+    <button (click)="tarefasService.editarTarefa(tarefa.id)"">
+      Editar
+    </button>
 
-      <button (click)="removerTarefa(tarefa.id)">
-        Remover
-      </button>
+    <button (click)="tarefasService.removerTarefa(tarefa.id)">
+      Remover
+    </button>
 
-    </div>
+  </div>
 
   }
 

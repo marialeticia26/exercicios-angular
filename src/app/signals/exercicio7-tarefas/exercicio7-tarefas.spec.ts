@@ -1,22 +1,14 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, inject } from '@angular/core';
+import { TarefasService } from './services/tarefas';
 
-import { Exercicio7Tarefas } from './exercicio7-tarefas';
+@Component({
+  selector: 'app-exercicio7-tarefas',
+  imports: [],
+  templateUrl: './exercicio7-tarefas.html',
+  styleUrl: './exercicio7-tarefas.css'
+})
+export class Exercicio7Tarefas {
 
-describe('Exercicio7Tarefas', () => {
-  let component: Exercicio7Tarefas;
-  let fixture: ComponentFixture<Exercicio7Tarefas>;
+  protected readonly tarefasService = inject(TarefasService);
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [Exercicio7Tarefas],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(Exercicio7Tarefas);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+}
