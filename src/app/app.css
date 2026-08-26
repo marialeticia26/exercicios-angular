@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f7f5f2;
+}
+
+header {
+  background-color: #6b2335;
+  padding: 18px 30px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  padding-bottom: 4px;
+}
+
+nav a:hover {
+  color: #c3c59a;
+}
+
+main {
+  padding: 30px;
+}
